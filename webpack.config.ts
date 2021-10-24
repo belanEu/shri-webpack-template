@@ -2,7 +2,6 @@ import * as path from 'path';
 import * as webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import StatoscopePlugin from '@statoscope/webpack-plugin';
-import { IgnorePlugin } from 'webpack';
 
 import ModuleLogger from './plugins/moduleLogger';
 
@@ -24,9 +23,6 @@ const config: webpack.Configuration = {
             saveStatsTo: 'stats.json',
             saveOnlyStats: false,
             open: false,
-        }),
-        new IgnorePlugin({
-            resourceRegExp: /crypto-browserify/,
         })
     ],
     resolve: {
@@ -34,7 +30,10 @@ const config: webpack.Configuration = {
             "buffer": require.resolve("buffer"),
             "stream": false,
         },
-        extensions: ['.tsx', '.ts', '.js']
+        extensions: ['.tsx', '.ts', '.js'],
+        alias: {
+            'crypto-browserify': path.resolve(__dirname, 'helper/uuid.ts')
+        }
     },
     module: {
         rules: [
