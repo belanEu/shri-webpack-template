@@ -34,7 +34,7 @@ const config: webpack.Configuration = {
         },
         extensions: ['.tsx', '.ts', '.js'],
         alias: {
-            'crypto-browserify': path.resolve(__dirname, 'helper/uuid.ts')
+            'crypto-browserify': path.resolve(__dirname, 'src/helper/uuid.ts')
         }
     },
     module: {
