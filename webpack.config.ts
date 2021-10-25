@@ -4,6 +4,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import StatoscopePlugin from '@statoscope/webpack-plugin';
 
 import ModuleLogger from './plugins/moduleLogger';
+import UnusedModuleStatsPlugin from './plugins/unusedModuleStats';
 
 const config: webpack.Configuration = {
     mode: 'production',
@@ -19,6 +20,7 @@ const config: webpack.Configuration = {
     plugins: [
         new HtmlWebpackPlugin(),
         new ModuleLogger(),
+        new UnusedModuleStatsPlugin(),
         new StatoscopePlugin({
             saveStatsTo: 'stats.json',
             saveOnlyStats: false,
