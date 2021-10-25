@@ -64,7 +64,7 @@ class UnusedModuleStatsPlugin {
                         }
                     });
                 }
-            } else if (lstatSync(tmp).isFile() && /([a-zA-Z]+|[0-9]+)\.(js|jsx|ts|tsx)$/.test(tmp)) {
+            } else if (lstatSync(tmp).isFile()) {
                 modules[tmp] = true;
             }
         }
